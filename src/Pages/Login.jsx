@@ -7,7 +7,15 @@ export const Login = () => {
     const email = form.get("email");
     const pass = form.get("pass");
     const user = { email, pass };
-    console.log(user);
+    fetch("http://localhost:5000/user ", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div>
