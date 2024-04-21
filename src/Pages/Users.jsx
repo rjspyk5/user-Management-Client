@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export const Users = () => {
   const datas = useLoaderData();
@@ -24,7 +24,9 @@ export const Users = () => {
           <button onClick={() => handleDelete(el._id)} className="btn">
             X
           </button>
-          <button className="btn">View details</button>
+          <Link to={`/users/${el._id}`} className="btn">
+            View details
+          </Link>
         </p>
       ))}
     </div>
