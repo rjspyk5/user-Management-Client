@@ -4,6 +4,7 @@ import { Login } from "./Pages/Login";
 import { About } from "./Pages/About";
 import { Contact } from "./Pages/Contact";
 import { Register } from "./Pages/Register";
+import { Users } from "./Pages/Users";
 
 export const Routes = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ export const Routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
+        loader: () => fetch("http://localhost:5000/users"),
       },
     ],
   },

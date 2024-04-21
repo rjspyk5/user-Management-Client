@@ -15,7 +15,10 @@ export const Login = () => {
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        alert(data.insertedId);
+        e.target.reset();
+      });
   };
   return (
     <div>

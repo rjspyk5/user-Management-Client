@@ -32,6 +32,16 @@ export const Navbar = () => {
           Contact
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/users"
+          className={({ isActive }) =>
+            isActive ? "bg-orange-500 focus:bg-orange-500" : ""
+          }
+        >
+          Users
+        </NavLink>
+      </li>
     </>
   );
   return (
