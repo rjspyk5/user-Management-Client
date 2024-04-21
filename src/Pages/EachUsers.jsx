@@ -6,6 +6,16 @@ export const EachUsers = () => {
     const form = new FormData(e.target);
     const email = form.get("email");
     const pass = form.get("pass");
+
+    fetch(`http://localhost:5000/users/${data._id}`, {
+      method: "put",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email, pass }),
+    })
+      .then((res) => res.json())
+      .then((d) => console.log(d));
   };
 
   return (
