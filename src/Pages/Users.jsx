@@ -1,14 +1,19 @@
-import React from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 export const Users = () => {
-  const data = useLoaderData();
+  const datas = useLoaderData();
+  const [data, setdata] = useState(datas);
+
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/users/${id}`, {
       method: "delete",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then(() => {
+        const update = data.filter((el) => el._id != id);
+        setdata(update);
+      });
   };
   return (
     <div>
@@ -19,6 +24,7 @@ export const Users = () => {
           <button onClick={() => handleDelete(el._id)} className="btn">
             X
           </button>
+          <button className="btn">View details</button>
         </p>
       ))}
     </div>
